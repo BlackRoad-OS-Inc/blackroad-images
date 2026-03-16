@@ -1,41 +1,33 @@
 <div align="center">
-
 <img src="https://images.blackroad.io/pixel-art/road-logo.png" alt="BlackRoad OS" width="80" />
 
-# blackroad-images
+# BlackRoad Images
 
-**BlackRoad Images — AI image generation (DALL-E, FLUX, SDXL) with R2 storage.**
+**AI image generation + R2 CDN. DALL-E, FLUX, SDXL. Brand assets at images.blackroad.io.**
 
 [![BlackRoad OS](https://img.shields.io/badge/BlackRoad_OS-Pave_Tomorrow-FF2255?style=for-the-badge&labelColor=000000)](https://blackroad.io)
-[![License](https://img.shields.io/badge/License-Proprietary-FF6B2B?style=for-the-badge&labelColor=000000)](./LICENSE)
-[![Edge AI](https://img.shields.io/badge/Edge_AI-52_TOPS-00D4FF?style=for-the-badge&labelColor=000000)](https://github.com/BlackRoad-OS-Inc)
-
-</div>
-
-<div align="center">
-<sub>Part of the <a href="https://blackroad.io">BlackRoad OS</a> ecosystem — sovereign edge AI infrastructure</sub>
 </div>
 
 ---
 
-## Overview
+## CDN
 
-BlackRoad Images — AI image generation (DALL-E, FLUX, SDXL) with R2 storage.
+**[images.blackroad.io](https://images.blackroad.io)** — serves all brand assets, pixel art, and generated images from Cloudflare R2.
 
-## License
+## Assets
 
-**Proprietary** — Copyright © 2024–2026 [BlackRoad OS, Inc.](https://blackroad.io) All rights reserved.
+- Brand logos (32px to 512px, all formats)
+- 22 road logo variants (PNG + motion video)
+- 14 pixel art HQ floor backgrounds
+- 50 pixel art character/furniture sprites
+- AI-generated content
 
-Founder & CEO: **Alexa Louise Amundson** · Delaware C-Corp
+## Stack
 
-See [LICENSE](./LICENSE) for full terms.
+- Cloudflare Workers (image proxy)
+- R2 (object storage)
+- Workers AI (SDXL, FLUX for generation)
 
 ---
 
-<div align="center">
-
-**BlackRoad OS — Pave Tomorrow.**
-
-[blackroad.io](https://blackroad.io) · [GitHub](https://github.com/BlackRoad-OS-Inc) · [Brand](https://brand.blackroad.io)
-
-</div>
+*Copyright (c) 2024-2026 BlackRoad OS, Inc. All rights reserved.*
