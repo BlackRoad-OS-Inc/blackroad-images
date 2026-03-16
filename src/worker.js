@@ -312,7 +312,7 @@ function renderGallery(stats, images = null, query = '') {
 <style>
   :root { --grad: linear-gradient(90deg, #FF6B2B, #FF2255, #CC00AA, #8844FF, #4488FF, #00D4FF); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { background: #000; color: #fff; font-family: 'Inter', -apple-system, sans-serif; min-height: 100vh; }
+  body { background: #000; color: #fff; font-family: 'Space Grotesk', -apple-system, sans-serif; min-height: 100vh; }
   .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
   .header { text-align: center; padding: 36px 0 16px; }
@@ -321,20 +321,20 @@ function renderGallery(stats, images = null, query = '') {
     color: #f5f5f5;
   }
   @keyframes gradShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-  .tagline { font-family: 'Space Grotesk'; font-size: 0.9rem; color: #888; margin: 4px 0; }
+  .tagline { font-family: 'Space Grotesk'; font-size: 0.9rem; color:rgba(255,255,255,0.5); margin: 4px 0; }
   .pulse { display: inline-block; width: 6px; height: 6px; background: #00D4FF; border-radius: 50%; animation: pulse 2s ease infinite; margin-right: 4px; vertical-align: middle; }
   @keyframes pulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,212,255,0.4); } 50% { opacity: 0.6; box-shadow: 0 0 0 8px rgba(0,212,255,0); } }
 
   .stats-bar {
     display: flex; gap: 24px; justify-content: center; padding: 12px 0;
-    color: #666; font-size: 0.78rem; border-bottom: 1px solid #222; margin-bottom: 16px;
+    color:rgba(255,255,255,0.4); font-size: 0.78rem; border-bottom: 1px solid #222; margin-bottom: 16px;
     font-family: 'JetBrains Mono';
   }
   .stat-num { color: #fff; font-weight: 600; }
 
   .agents-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 12px 0; justify-content: center; }
   .agent-card {
-    border: 1px solid #2a2a2a; border-radius: 10px; padding: 10px 16px;
+    border: 1px solid #1a1a1a; border-radius: 10px; padding: 10px 16px;
     background: #0a0a0a; text-align: center; min-width: 130px;
     transition: all 0.25s; cursor: default; position: relative; overflow: hidden;
   }
@@ -342,10 +342,10 @@ function renderGallery(stats, images = null, query = '') {
     content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px;
     background: var(--grad); opacity: 0; transition: opacity 0.3s;
   }
-  .agent-card:hover { border-color: #444; transform: translateY(-2px); }
+  .agent-card:hover { border-color:rgba(255,255,255,0.3); transform: translateY(-2px); }
   .agent-card:hover::after { opacity: 1; }
   .agent-name { font-family: 'JetBrains Mono'; color: #fff; font-size: 0.85rem; font-weight: 600; }
-  .agent-models { font-size: 0.63rem; color: #555; margin-top: 3px; }
+  .agent-models { font-size: 0.63rem; color:rgba(255,255,255,0.35); margin-top: 3px; }
   .agent-status { width: 5px; height: 5px; background: #00D4FF; border-radius: 50%; display: inline-block; margin-right: 4px; }
 
   /* ── Generate Form ── */
@@ -355,13 +355,13 @@ function renderGallery(stats, images = null, query = '') {
   }
   .gen-form:focus-within { border-color: #FF225544; }
   .gen-form h3 {
-    font-family: 'Space Grotesk'; color: #888; font-size: 0.9rem; margin-bottom: 14px;
+    font-family: 'Space Grotesk'; color:rgba(255,255,255,0.5); font-size: 0.9rem; margin-bottom: 14px;
     display: flex; align-items: center; gap: 8px;
   }
   .gen-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
   .gen-row input, .gen-row select {
     flex: 1; min-width: 120px; padding: 12px 14px; background: #111; color: #fff;
-    border: 1px solid #2a2a2a; border-radius: 8px; font-size: 0.85rem;
+    border: 1px solid #1a1a1a; border-radius: 8px; font-size: 0.85rem;
     font-family: 'JetBrains Mono'; transition: border-color 0.2s; outline: none;
   }
   .gen-row input:focus { border-color: #FF2255; }
@@ -381,24 +381,24 @@ function renderGallery(stats, images = null, query = '') {
   .gen-progress.active { display: block; }
   .gen-progress .bar { height: 3px; background: var(--grad); border-radius: 3px; animation: loadBar 2s ease infinite; background-size: 200% 100%; }
   @keyframes loadBar { 0% { width: 0; } 50% { width: 80%; } 100% { width: 100%; opacity: 0.5; } }
-  .gen-status { text-align: center; color: #555; font-size: 0.75rem; font-family: 'JetBrains Mono'; margin-top: 6px; }
+  .gen-status { text-align: center; color:rgba(255,255,255,0.35); font-size: 0.75rem; font-family: 'JetBrains Mono'; margin-top: 6px; }
 
   /* ── Search ── */
   .search-wrap { display: flex; gap: 10px; margin: 16px 0; }
   .search-wrap input {
     flex: 1; padding: 12px 16px; background: #0a0a0a; color: #fff;
-    border: 1px solid #2a2a2a; border-radius: 8px; font-size: 0.9rem;
+    border: 1px solid #1a1a1a; border-radius: 8px; font-size: 0.9rem;
     font-family: 'JetBrains Mono'; outline: none; transition: border-color 0.2s;
   }
   .search-wrap input:focus { border-color: #8844FF; box-shadow: 0 0 15px rgba(136,68,255,0.1); }
 
   /* ── Upload ── */
   .upload-zone {
-    border: 2px dashed #2a2a2a; border-radius: 12px; padding: 32px; text-align: center;
-    color: #444; cursor: pointer; margin: 16px 0; transition: all 0.3s; position: relative;
+    border: 2px dashed #1a1a1a; border-radius: 12px; padding: 32px; text-align: center;
+    color:rgba(255,255,255,0.3); cursor: pointer; margin: 16px 0; transition: all 0.3s; position: relative;
   }
-  .upload-zone:hover { border-color: #FF2255; color: #888; background: #FF225508; }
-  .upload-zone.dragover { border-color: #00D4FF; background: #00D4FF08; color: #ccc; transform: scale(1.01); }
+  .upload-zone:hover { border-color: #FF2255; color:rgba(255,255,255,0.5); background: #FF225508; }
+  .upload-zone.dragover { border-color: #00D4FF; background: #00D4FF08; color:rgba(255,255,255,0.7); transform: scale(1.01); }
   .upload-zone input { display: none; }
   .upload-zone .icon { font-size: 1.5rem; margin-bottom: 6px; opacity: 0.4; }
   .upload-progress { display: none; margin-top: 8px; }
@@ -419,14 +419,14 @@ function renderGallery(stats, images = null, query = '') {
   }
   .image-card:hover img { transform: scale(1.03); }
   .image-meta { padding: 12px; }
-  .image-prompt { font-size: 0.73rem; color: #888; display: block; line-height: 1.4; margin-bottom: 6px; }
+  .image-prompt { font-size: 0.73rem; color:rgba(255,255,255,0.5); display: block; line-height: 1.4; margin-bottom: 6px; }
   .image-tags { display: flex; gap: 6px; flex-wrap: wrap; }
   .provider-tag, .model-tag, .size-tag {
     padding: 3px 8px; border-radius: 5px; font-size: 0.63rem; font-family: 'JetBrains Mono';
   }
   .provider-tag { border: 1px solid #609926; color: #7bc43c; }
-  .model-tag { border: 1px solid #8844FF; color: #aaa; }
-  .size-tag { border: 1px solid #2a2a2a; color: #666; }
+  .model-tag { border: 1px solid #8844FF; color:rgba(255,255,255,0.6); }
+  .size-tag { border: 1px solid #1a1a1a; color:rgba(255,255,255,0.4); }
 
   /* ── Lightbox ── */
   .lightbox {
@@ -440,11 +440,11 @@ function renderGallery(stats, images = null, query = '') {
   .lightbox .lb-info {
     position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
     background: #111; border: 1px solid #333; border-radius: 10px; padding: 12px 20px;
-    font-size: 0.8rem; color: #aaa; max-width: 600px; text-align: center;
+    font-size: 0.8rem; color:rgba(255,255,255,0.6); max-width: 600px; text-align: center;
     font-family: 'JetBrains Mono';
   }
   .lightbox .lb-close {
-    position: absolute; top: 20px; right: 24px; color: #555; font-size: 1.5rem;
+    position: absolute; top: 20px; right: 24px; color:rgba(255,255,255,0.35); font-size: 1.5rem;
     cursor: pointer; transition: color 0.2s; background: none; border: none;
   }
   .lightbox .lb-close:hover { color: #fff; }
@@ -460,7 +460,7 @@ function renderGallery(stats, images = null, query = '') {
   .topnav-links { display: flex; gap: 4px; align-items: center; }
   .topnav-links a {
     padding: 5px 12px; border-radius: 6px; font-size: 0.72rem; font-family: 'JetBrains Mono';
-    color: #555; text-decoration: none; transition: all 0.2s; border: 1px solid transparent;
+    color:rgba(255,255,255,0.35); text-decoration: none; transition: all 0.2s; border: 1px solid transparent;
   }
   .topnav-links a:hover { color: #fff; border-color: #333; background: #111; }
   .topnav-links a.active { color: #fff; border-color: #FF225533; background: #FF225508; }
@@ -474,19 +474,19 @@ function renderGallery(stats, images = null, query = '') {
     font-family: 'JetBrains Mono'; font-size: 0.55rem; color: #222; text-transform: uppercase; letter-spacing: 1px; margin-right: 2px;
   }
   .bl {
-    font-family: 'JetBrains Mono'; font-size: 0.6rem; color: #444; text-decoration: none;
+    font-family: 'JetBrains Mono'; font-size: 0.6rem; color:rgba(255,255,255,0.3); text-decoration: none;
     padding: 2px 8px; border: 1px solid #1a1a1a; border-radius: 4px; transition: all 0.2s;
   }
   .bl:hover { color: #fff; border-color: #4488FF33; background: #4488FF08; }
-  .bl-portal { border-color: #FF225518 !important; color: #ccc !important; }
+  .bl-portal { border-color: #FF225518 !important; color:rgba(255,255,255,0.7) !important; }
   .bl-portal:hover { background: #FF225508 !important; border-color: #FF225533 !important; }
-  .bl-index { border-color: #4488FF18 !important; color: #ccc !important; }
+  .bl-index { border-color: #4488FF18 !important; color:rgba(255,255,255,0.7) !important; }
   .bl-index:hover { background: #4488FF08 !important; border-color: #4488FF33 !important; }
-  .bl-images { border-color: #CC00AA18 !important; color: #ccc !important; }
+  .bl-images { border-color: #CC00AA18 !important; color:rgba(255,255,255,0.7) !important; }
   .bl-images:hover { background: #CC00AA08 !important; border-color: #CC00AA33 !important; }
   .bl-git { border-color: #7bc43c18 !important; color: #7bc43c !important; }
   .bl-git:hover { background: #7bc43c08 !important; border-color: #7bc43c33 !important; }
-  .bl-kw { border-color: #8844FF18 !important; color: #aaa !important; font-size: 0.55rem !important; }
+  .bl-kw { border-color: #8844FF18 !important; color:rgba(255,255,255,0.6) !important; font-size: 0.55rem !important; }
   .bl-kw:hover { background: #8844FF08 !important; border-color: #8844FF33 !important; }
   .bl-sep { display: inline-block; width: 1px; height: 10px; background: #1a1a1a; }
 
@@ -495,21 +495,21 @@ function renderGallery(stats, images = null, query = '') {
   .empty p { color: #333; font-size: 0.85rem; }
 
   .api-toggle {
-    background: none; border: 1px solid #1a1a1a; color: #444; padding: 8px 16px; border-radius: 8px;
+    background: none; border: 1px solid #1a1a1a; color:rgba(255,255,255,0.3); padding: 8px 16px; border-radius: 8px;
     font-size: 0.72rem; cursor: pointer; font-family: 'JetBrains Mono'; transition: all 0.2s;
     display: block; margin: 24px auto 0;
   }
-  .api-toggle:hover { border-color: #444; color: #888; }
+  .api-toggle:hover { border-color:rgba(255,255,255,0.3); color:rgba(255,255,255,0.5); }
   .api-panel { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; margin-top: 8px; }
   .api-panel.open { max-height: 250px; }
-  .api-panel-inner { padding: 16px; color: #444; font-size: 0.72rem; border: 1px solid #1a1a1a; border-radius: 8px; }
+  .api-panel-inner { padding: 16px; color:rgba(255,255,255,0.3); font-size: 0.72rem; border: 1px solid #1a1a1a; border-radius: 8px; }
   .api-panel code { background: #111; padding: 3px 8px; border-radius: 4px; color: #777; font-family: 'JetBrains Mono'; }
 
   .footer {
     text-align: center; margin-top: 36px; padding: 24px 0; border-top: 1px solid #1a1a1a;
     font-family: 'Space Grotesk'; line-height: 1.9;
   }
-  .footer .l1 { font-size: 0.82rem; color: #444; }
+  .footer .l1 { font-size: 0.82rem; color:rgba(255,255,255,0.3); }
   .footer .l2 { font-size: 0.65rem; color: #333; letter-spacing: 2px; text-transform: uppercase; }
 
   @media (max-width: 600px) { .header h1 { font-size: 1.7rem; } .grid { grid-template-columns: 1fr 1fr; gap: 10px; } }
@@ -658,7 +658,7 @@ document.querySelectorAll('.image-card').forEach(card=>{
       +'</div>'
       +(kws.length?'<div class="blacklinks" style="justify-content:center;border:none;padding:0;margin-top:4px">'+kws.map(w=>'<a href="/?q='+encodeURIComponent(w)+'" class="bl bl-kw">'+w+'</a>').join('')
       +'<span class="bl-sep"></span>'
-      +kws.slice(0,3).map(w=>'<a href="https://portal.blackroad.io/?q='+encodeURIComponent(w)+'" target="_blank" class="bl bl-kw" style="color:#ccc !important;border-color:#FF225518 !important">'+w+' @portal</a>').join('')
+      +kws.slice(0,3).map(w=>'<a href="https://portal.blackroad.io/?q='+encodeURIComponent(w)+'" target="_blank" class="bl bl-kw" style="color:rgba(255,255,255,0.7) !important;border-color:#FF225518 !important">'+w+' @portal</a>').join('')
       +'</div>':'');
     lb.classList.add('open');
   });
@@ -783,9 +783,11 @@ export default {
     if (request.method === 'OPTIONS') return new Response(null, { headers: cors });
 
     try {
+      // Standard response headers
+      const requestId = crypto.randomUUID().slice(0, 8);
       // ── Clean path image routes ──
       // PUT /image.png → upload, GET /image.png → serve
-      if (path.match(/^\/[^\/]+\.(png|jpg|jpeg|webp|gif|svg)$/i) || path.startsWith('/img/') || path.startsWith('/pixel-art/') || path.startsWith('/brand/')) {
+      if (path.match(/^\/[^\/]+\.(png|jpg|jpeg|webp|gif|svg)$/i) || path.startsWith('/img/') || path.startsWith('/pixel-art/') || path.startsWith('/brand/') || path.startsWith('/worlds/') || path.startsWith('/hq/') || path.startsWith('/mesh/') || path.startsWith('/metrocity/') || path.startsWith('/maps/') || path.startsWith('/city/') || path.startsWith('/pixel-city/') || path.startsWith('/characters/')) {
 
         // PUT: Upload to a specific clean path
         if (request.method === 'PUT') {
@@ -931,6 +933,11 @@ export default {
         const page = parseInt(url.searchParams.get('page') || '1');
         const results = await searchImages(env.DB, q, { provider, model, page });
         return Response.json({ results, query: q }, { headers: cors });
+      }
+
+      // ── API: Health ──
+      if (path === '/api/health') {
+        return Response.json({ status: 'up', service: 'images-blackroad', version: '1.0.0' }, { headers: cors });
       }
 
       // ── API: Stats ──
